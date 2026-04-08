@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Activity, Menu, X, BarChart3, Utensils, MessageCircle, Home, CalendarCheck2, Shield } from 'lucide-react';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const navItems = [
   { label: 'Home', path: '/', icon: Home },
@@ -42,12 +43,16 @@ export default function Navbar() {
               </Link>
             );
           })}
+          <ThemeToggle />
         </div>
 
         {/* Mobile toggle */}
-        <button onClick={() => setOpen(!open)} className="md:hidden p-2 text-muted-foreground hover:text-foreground">
-          {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button onClick={() => setOpen(!open)} className="p-2 text-muted-foreground hover:text-foreground">
+            {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}

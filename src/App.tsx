@@ -2,9 +2,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { AnimatePresence, motion } from "framer-motion";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/Navbar";
 import MobileBottomNav from "@/components/MobileBottomNav";
 import Index from "./pages/Index.tsx";
@@ -46,19 +43,15 @@ function AnimatedRoutes() {
 const App = () => (
   <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Navbar />
-          <div className="pb-24 md:pb-0">
-            <AnimatedRoutes />
-          </div>
-          <MobileBottomNav />
-        </BrowserRouter>
-      </TooltipProvider>
+      <BrowserRouter>
+        <Navbar />
+        <div className="pb-24 md:pb-0">
+          <AnimatedRoutes />
+        </div>
+        <MobileBottomNav />
+      </BrowserRouter>
     </QueryClientProvider>
   </ThemeProvider>
 );
 
-export default App;
+export default App; 

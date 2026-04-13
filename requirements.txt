@@ -1,0 +1,2 @@
+# This project is built with React/TypeScript (Node.js), not Python.
+# Python dependencies are currently not required.
